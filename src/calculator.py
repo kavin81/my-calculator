@@ -12,26 +12,50 @@ def subtract(a, b):
     return a - b
 
 def multiply(a, b):
-    """Multiply two numbers with input validation and logging."""
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise TypeError("Both arguments must be numbers")
-    
-    print(f"Multiplying {a} × {b}")  # Added logging
-    result = a * b
-    print(f"Result: {result}")
-    return result
+    """Multiply two numbers with validation and logging."""
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        print(f"Multiplying {a} by {b}...")
+        result = a * b
+        print(f"Result of multiplication: {result}")
+        return result
+    else:
+        raise TypeError("Both inputs must be numbers.")
 
 def divide(a, b):
-    """Divide a by b with enhanced error handling."""
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise TypeError("Division requires numeric inputs")
-    if b == 0:
-        raise ValueError(f"Cannot divide {a} by zero - division by zero is undefined")
-    
-    print(f"Dividing {a} ÷ {b}")  # Added logging
-    result = a / b
-    print(f"Result: {result}")
-    return result
+    """Perform division with input validation and error handling."""
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        if b != 0:
+            print(f"Performing division: {a} divided by {b}")
+            result = a / b
+            print(f"Result: {result}")
+            return result
+        else:
+            raise ValueError("Cannot divide by zero.")
+    else:
+        raise TypeError("Both arguments must be numbers.")
+
+def power(base, exponent):
+    """Raise base to the power of exponent with validation."""
+    if isinstance(base, (int, float)) and isinstance(exponent, (int, float)):
+        print(f"Calculating {base} raised to the power of {exponent}...")
+        result = base ** exponent
+        print(f"Result: {result}")
+        return result
+    else:
+        raise TypeError("Both base and exponent must be numbers.")
+
+def sqrt(value):
+    """Calculate the square root of a number with validation."""
+    if isinstance(value, (int, float)):
+        if value >= 0:
+            print(f"Calculating the square root of {value}...")
+            result = value ** 0.5
+            print(f"Result: {result}")
+            return result
+        else:
+            raise ValueError("Cannot compute the square root of a negative number.")
+    else:
+        raise TypeError("Input must be a number.")
 
 # TODO: Students will add multiply, divide, power, sqrt functions
 
